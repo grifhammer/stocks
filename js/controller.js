@@ -29,13 +29,34 @@ stocksApp.controller('stocksController', function ($scope, $http){
 		$scope.dataList = [];
 		for( name in stockData ){
 			console.log(name);
-			$scope.dataList.push({
-				prop: name,
-				value: stockData[name]
-			})
+			if( name == "Ask" ||
+				name == "Bid" ||
+				name == "Change" ||
+				name == "Volume" ||
+				name == "DaysLow" ||
+				name == "DaysHigh" ||
+				name == "YearsLow" ||
+				name == "MarketCapitalization"){
+
+				$scope.dataList.push({
+					prop: name,
+					value: stockData[name]
+
+				})
+			}
 		}
+		$scope.theChart = "http://chart.finance.yahoo.com/z?s="+stockData.Symbol+"&t=3m&q=l&l=on&z=s&p=m10,m100"
+		$scope.theChart2 = "http://chart.finance.yahoo.com/z?s="+stockData.Symbol+"&t=1ym&q=l&l=on&z=s&p=m50,m200"
+	}
 
-
+	$scope.getChangeClass = function(change){
+		if(change.indexOf('+') > -1 ){
+			return 'change-positive';
+		} else if(change.indexOf('-') > -1){
+			return 'change-negative';
+		} else {
+			return 'change-none'
+		}
 	}
 
 });

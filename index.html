@@ -9,7 +9,7 @@
 	<div class="container" id="page-wrapper">
 		<div class="row">
 			<!-- Has stock search field then displays each ticker searched with name and daily change -->
-			<div class="col-md-3" id="left-all-stocks">
+			<div class="col-md-3 content" id="left-all-stocks">
 				<form ng-submit="getStocks()">
 					<div id="get-stock-text">What stocks would you like to search for? Separate with a comma (i.e. goog,msft,yhoo):</div>
 					<div id="get-stock-input">
@@ -18,24 +18,30 @@
 				</form>
 				<div id="{{stock.Symbol}}" ng-click="loadStock(stock)" ng-repeat="stock in listOfStocks">
 					<div class="company-name">{{stock.Name}}</div>
-					<div class="stock-change">{{stock.Change}}</div>
+					<div class="stock-change {{getChangeClass(stock.Change)}}">{{stock.Change}}</div>
 					<div class="stock-symbol">{{stock.Symbol}}</div>
 					<img src="">
 				</div>
 			</div>
 			<!-- Show the middle column with the stock detail inside -->
-			<div class="col-md-6" id="main-wrapper">
+			<div class="col-md-6 content" id="main-wrapper">
 				<div id="stock-filter">
-					Filter: <input type="text" class='form-control' ng-model="stockFilter">
-					<div id="" ng-repeat="detail in dataList | filter: stockFilter">
+					<span class="filter-text">Filter:</span> <input type="text" class='form-control' ng-model="stockFilter">
+					<div id="" class="detail-item" ng-repeat="detail in dataList | filter: stockFilter">
 						<div class="stock-properties">
-							<div class="detail-prop">{{detail.prop}}:</div>
-							<div class="prop-value">{{detail.value}}</div>
+							<span class="detail-prop">{{detail.prop}}:</span>
+							<span class="prop-value">{{detail.value}}</span>
 						</div>
 					</div>
 				</div>
 			</div>
-			<div class="col-md-3" id="graphs-wrapper">
+			<div class="col-md-3 content" id="graphs-wrapper">
+				<div class="graph">
+					<img src="{{theChart}}">
+				</div>
+				<div class="graph">
+					<img src="{{theChart2}}"
+				</div>
 			</div>
 		</div>
 	</div>

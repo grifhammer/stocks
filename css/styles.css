@@ -6,22 +6,59 @@
 	margin: 15px 5px 15px 30px;
 
 }
+.content{
+	height: 94.5vh;
+	border: 5px solid white;
+
+}
+
+.filter-text{
+	font-weight: bold;
+	font-size: 20px;
+}
 
 #left-all-stocks{
 	background-color: gray;
-	height: 95vh;
 }
 
 #main-wrapper{
 	background-color: mintcream;
-	height: 95vh;
+	overflow: scroll;
 }
 
 #graphs-wrapper{
 	background-color: white;
-	height: 95vh;
 }
 
 #get-stock-text{
 	color: white;
+}
+
+.change-positive{
+	color: green;
+}
+
+.change-none{
+	color: black;
+}
+
+.change-negative{
+	color: red;
+}
+
+.detail-item{
+	padding: 2px 0 2px 5px;
+	margin: 5px 0;
+	background: lightgray;
+}
+
+.detail-prop{
+	font-weight: bold;
+}
+
+.graph{
+	margin-top: 50px;
+}
+.graph img{
+	width: 100%;
 }
