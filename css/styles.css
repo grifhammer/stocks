@@ -1,0 +1,27 @@
+#page-wrapper{
+	width: 95%;
+	height: 95vh;
+	border: 1px solid green;
+	/*padding: 3px;*/
+	margin: 15px 5px 15px 30px;
+
+}
+
+#left-all-stocks{
+	background-color: gray;
+	height: 95vh;
+}
+
+#main-wrapper{
+	background-color: mintcream;
+	height: 95vh;
+}
+
+#graphs-wrapper{
+	background-color: white;
+	height: 95vh;
+}
+
+#get-stock-text{
+	color: white;
+}

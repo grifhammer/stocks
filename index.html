@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html ng-app="stocksApp">
+<head>
+	<title>Stock Market Tool</title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/styles.css">
+</head>
+<body ng-controller="stocksController">
+	<div class="container" id="page-wrapper">
+		<div class="row">
+			<!-- Has stock search field then displays each ticker searched with name and daily change -->
+			<div class="col-md-3" id="left-all-stocks">
+				<form ng-submit="getStocks()">
+					<div id="get-stock-text">What stocks would you like to search for? Separate with a comma (i.e. goog,msft,yhoo):</div>
+					<div id="get-stock-input">
+						<input type="text" class="form-control" ng-model="userStocks">
+					</div>
+				</form>
+				<div id="{{stock.Symbol}}" ng-click="loadStock(stock)" ng-repeat="stock in listOfStocks">
+					<div class="company-name">{{stock.Name}}</div>
+					<div class="stock-change">{{stock.Change}}</div>
+					<div class="stock-symbol">{{stock.Symbol}}</div>
+					<img src="">
+				</div>
+			</div>
+			<!-- Show the middle column with the stock detail inside -->
+			<div class="col-md-6" id="main-wrapper">
+				<div id="stock-filter">
+					Filter: <input type="text" class='form-control' ng-model="stockFilter">
+					<div id="" ng-repeat="detail in dataList | filter: stockFilter">
+						<div class="stock-properties">
+							<div class="detail-prop">{{detail.prop}}:</div>
+							<div class="prop-value">{{detail.value}}</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-3" id="graphs-wrapper">
+			</div>
+		</div>
+	</div>
+	<script src="js/angular.min.js"></script>
+	<script src="js/angular-route.min.js"></script>
+	<script src="js/controller.js"></script>
+</body>
+</html>
